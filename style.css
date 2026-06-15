@@ -1,4 +1,13 @@
-/* ══ RESET & DEEP CONTRAST VARIABLES ══ */
+/* ══ LOCAL STATIC FONT CONNECT MECHANICS ══ */
+@font-face {
+    font-family: 'CandyCane';
+    src: url('Candy\ Cane\ Personal\ Use.ttf') format('truetype'),
+         url('candy_cane.ttf') format('truetype'); /* Backups framework mapping */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ══ RESET & GLOBAL MESH CORE ══ */
 *, *::before, *::after {
     margin: 0; padding: 0; box-sizing: border-box;
 }
@@ -23,107 +32,69 @@ body {
     position: fixed; inset: 0; z-index: 99998; pointer-events: none; display: none;
 }
 
-/* ══ HIGH-END LUXURY ACTION WORDS (Clean Montserrat Override, Zero Emojis) ══ */
+/* ══ HIGH-END LUXURY ACTION WORDS (Cinzel Font Engine Overwrite, No Emojis) ══ */
 .action-word.premium-action-text {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Cinzel', serif;
     font-weight: 900;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: var(--liquid-gold);
     letter-spacing: 0.35em;
     text-transform: uppercase;
     text-align: center;
-    margin-top: 2.5rem;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+    margin-top: 2rem;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.95);
 }
 
 .action-word.large-text {
-    font-size: 1.35rem;
-    text-shadow: 0 0 25px rgba(255, 215, 0, 0.55);
+    font-size: 1.3rem;
+    text-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
 }
 
-/* ══ ISOMETRIC 3D VIEWPORT & BOX MECHANICS (Ultra Depth) ══ */
+/* ══ THREE.JS REAL 3D ENGINE VIEWPORT CONTAINER ══ */
 #gift-vault-screen {
     position: fixed; inset: 0; z-index: 99999;
     background: radial-gradient(circle at 50% 45%, #2B0415 0%, #070005 100%);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
 
-.scene-3d-viewport {
-    perspective: 1200px; padding: 2rem;
+.canvas-3d-container {
+    width: 100%; max-width: 380px; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center;
 }
 
-.box-3d-wrap {
-    position: relative; width: 220px; height: 220px; cursor: pointer;
-    transform-style: preserve-3d;
-    transform: rotateX(18deg) rotateY(-22deg);
-    animation: floatPrism 4s ease-in-out infinite alternative;
+#three-gift-canvas {
+    width: 100% !important; height: 100% !important; cursor: pointer;
 }
 
-@keyframes floatPrism {
-    0% { transform: rotateX(18deg) rotateY(-22deg) translateY(0px); }
-    100% { transform: rotateX(22deg) rotateY(-18deg) translateY(-15px); }
-}
-
-.gift-box-body {
-    position: absolute; bottom: 0; width: 100%; height: 75%;
-    background: linear-gradient(135deg, rgba(74, 14, 40, 0.8), rgba(37, 4, 19, 0.95));
-    backdrop-filter: blur(12px); border: var(--border-aura-glow); border-radius: 6px;
-    box-shadow: 0 35px 70px rgba(0,0,0,0.9), inset 0 1px 3px rgba(255,255,255,0.1);
-}
-
-.gift-box-lid {
-    position: absolute; top: 12%; width: 108%; height: 25%; left: -4%;
-    background: linear-gradient(135deg, #5C1333, #33071B);
-    border: var(--border-aura-glow); border-radius: 4px; z-index: 2;
-    transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s;
-}
-
-.neon-ribbon-v { position: absolute; left: 45%; width: 10%; height: 100%; background: var(--liquid-gold); box-shadow: 0 0 20px var(--liquid-gold); }
-.neon-ribbon-h { position: absolute; top: 44%; width: 100%; height: 12%; background: var(--liquid-gold); box-shadow: 0 0 20px var(--liquid-gold); }
-
-.cyber-seal {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) translateZ(10px);
-    width: 52px; height: 52px; background: #000; border: 2px solid var(--liquid-gold);
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-family: 'Cinzel', serif; font-weight: 900; color: var(--liquid-gold); font-size: 1.6rem;
-    box-shadow: 0 0 25px var(--liquid-gold);
-}
-
-.box-3d-wrap.open-animation .gift-box-lid {
-    transform: translateZ(150px) translateY(-120px) rotateX(-45deg); opacity: 0;
-}
-
-/* ══ CORE INTERFACE CONTAINER ══ */
+/* ══ MAIN INTERFACE CONTENT WORKSPACE ══ */
 #main-content-vault {
     display: none; opacity: 0; background: var(--bg-mesh-gradient); min-height: 100vh; transition: opacity 1.2s ease;
 }
 
 .hero-header-zone { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; }
 
-/* 👑 Clean High-End Typography with Drop Shadows (No Emojis) */
-.main-title {
-    font-family: 'Cinzel Decorative', serif; font-weight: 900; font-size: clamp(2.4rem, 6vw, 4.4rem);
-    text-align: center; line-height: 1.4; letter-spacing: 0.08em; color: var(--rose-cream);
+/* 👑 Custom Balanced Typography: CandyCane Integration */
+.main-title-candycane {
+    font-family: 'CandyCane', 'Cinzel Decorative', cursive, serif;
+    font-weight: normal; font-size: clamp(2.8rem, 7vw, 4.8rem);
+    text-align: center; line-height: 1.3; color: var(--rose-cream);
     text-shadow: 0 4px 20px rgba(0,0,0,0.95);
 }
 
-.main-title span {
-    display: block; font-size: 1.35em; margin-top: 1rem; color: var(--liquid-gold);
+.main-title-candycane span {
+    display: block; font-size: 1.15em; margin-top: 0.4rem; color: var(--liquid-gold);
     text-shadow: 0 8px 30px rgba(0,0,0,0.95), 0 0 40px rgba(255,215,0,0.6);
-    letter-spacing: 0.1em;
 }
 
 .sub-quote {
     font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600;
-    color: rgba(255,242,248,0.65); text-align: center; max-width: 580px; margin-top: 2rem; font-size: 1.35rem; line-height: 1.7;
+    color: rgba(255,242,248,0.65); text-align: center; max-width: 580px; margin-top: 2.5rem; font-size: 1.4rem; line-height: 1.7;
     text-shadow: 0 2px 5px rgba(0,0,0,0.6);
 }
 
-/* ══ DYNAMIC VIEWPORT FOCUS STACK DECK ══ */
+/* ══ DYNAMIC VIEWPORT FOCUS STACK DECK (Cormorant Garamond Engine) ══ */
 .section-container { padding: 7rem 1.5rem; display: flex; flex-direction: column; align-items: center; }
 .section-title {
-    font-family: 'Cinzel', serif; font-weight: 900; font-size: 2.3rem; color: var(--liquid-gold); margin-bottom: 5rem; text-transform: uppercase; letter-spacing: 0.22em;
+    font-family: 'Cinzel', serif; font-weight: 900; font-size: 2.1rem; color: var(--liquid-gold); margin-bottom: 5rem; text-transform: uppercase; letter-spacing: 0.25em;
     text-shadow: 0 4px 10px rgba(0,0,0,0.7);
 }
 
@@ -144,24 +115,25 @@ body {
 .stack-card-item img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; margin-bottom: 2rem; }
 
 .card-caption {
-    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 700; font-size: 1.3rem; text-align: center; color: var(--rose-cream); line-height: 1.6;
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 700; font-size: 1.35rem; text-align: center; color: var(--rose-cream); line-height: 1.6;
     text-shadow: 0 2px 6px rgba(0,0,0,0.9);
 }
 
-/* ══ RESPONSIVE SMARTPHONE video SCREEN ══ */
-.vlog-heading-hinglish { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 700; font-size: 1.9rem; color: var(--rose-cream); margin-bottom: 2.5rem; text-align: center; }
+/* ══ RESPONSIVE SMARTPHONE SCREEN FRAME ══ */
+.vlog-heading-hinglish { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 700; font-size: 2rem; color: var(--rose-cream); margin-bottom: 2.5rem; text-align: center; }
 .smartphone-frame { width: min(315px, 85vw); aspect-ratio: 9/16; background: #000; border-radius: 26px; overflow: hidden; margin: 0 auto; }
 .video-outline-aura { border: var(--border-aura-glow); box-shadow: 0 0 35px var(--neon-magenta-glow); }
 .smartphone-frame video { width: 100%; height: 100%; object-fit: cover; }
 
-/* ══ BEVELED GLASS SCRATCH SYSTEM (Liquid Gold Patina overlay) ══ */
+/* ══ BEVELED GLASS SCRATCH SYSTEM (Cormorant Hidden Message Layout) ══ */
 .physical-depth-box {
     border: 3px solid #DB7093; border-radius: 8px;
     box-shadow: 0 40px 80px rgba(0,0,0,0.95), inset 0 1px 3px rgba(255,255,255,0.15);
 }
 .scratch-canvas-container { position: relative; width: 100%; max-width: 450px; aspect-ratio: 1.8/1; background: #1B020E; overflow: hidden; }
 .secret-birthday-message { position: absolute; inset: 0; padding: 1.8rem; display: flex; align-items: center; justify-content: center; text-align: center; }
-.secret-birthday-message p { font-size: 1.25rem; line-height: 1.7; color: var(--rose-cream); font-style: italic; text-shadow: 0 2px 5px rgba(0,0,0,0.8); }
+.secret-birthday-message p { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.35rem; line-height: 1.7; color: var(--rose-cream); font-style: italic; text-shadow: 0 2px 5px rgba(0,0,0,0.8); }
 #scratchCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer; z-index: 3; }
 
-footer { text-align: center; padding: 5rem 1rem; border-top: 1px solid rgba(255,255,255,0.04); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 0.25em; opacity: 0.35; }
+footer { text-align: center; padding: 5rem 1rem; border-top: 1px solid rgba(255,255,255,0.04); font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.25em; opacity: 0.35; }
+                                                                            
