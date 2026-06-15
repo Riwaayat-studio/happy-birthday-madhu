@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Velvet Chronicles — Madhu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@700;900&family=Cormorant+Garamond:ital,wght@1,600;1,700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Cormorant+Garamond:ital,wght@1,600;1,700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,15 +13,8 @@
     <canvas id="blastCanvas"></canvas>
 
     <div id="gift-vault-screen">
-        <div class="scene-3d-viewport">
-            <div class="box-3d-wrap" onclick="unwrapGiftBox()">
-                <div class="gift-box-lid"></div>
-                <div class="gift-box-body">
-                    <div class="neon-ribbon-v"></div>
-                    <div class="neon-ribbon-h"></div>
-                    <div class="cyber-seal">M</div>
-                </div>
-            </div>
+        <div class="canvas-3d-container">
+            <canvas id="three-gift-canvas"></canvas>
         </div>
         <p class="action-word premium-action-text neon-pulse">TAP TO UNLOCK THE SURPRISE</p>
     </div>
@@ -28,7 +22,7 @@
     <div id="main-content-vault">
         
         <header class="hero-header-zone">
-            <h1 class="main-title">HAPPY BIRTHDAY <span>MADHU</span></h1>
+            <h1 class="main-title-candycane">Happy Birthday <span>Madhu</span></h1>
             <p class="sub-quote">"A nostalgic time-capsule crafted with pure memories and deep elegance."</p>
             <p class="action-word premium-action-text scroll-indicator">SCROLL DOWN</p>
         </header>
