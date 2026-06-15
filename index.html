@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Velvet Chronicles</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Raleway:wght@700;900&display=swap" rel="stylesheet">
+    <title>The Velvet Chronicles — Madhu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@700;900&family=Cormorant+Garamond:ital,wght@1,600;1,700&family=Raleway:wght@800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <canvas id="blastCanvas"></canvas>
 
     <div id="gift-vault-screen">
         <div class="box-3d-wrap" onclick="unwrapGiftBox()">
@@ -24,7 +26,7 @@
     <div id="main-content-vault">
         
         <header class="hero-header-zone">
-            <h1 class="main-title">THE CHRONICLES OF <span>MADHURI</span></h1>
+            <h1 class="main-title">HAPPY BIRTHDAY <span>MADHU</span></h1>
             <p class="sub-quote">"A nostalgic time-capsule crafted with pure memories and deep elegance."</p>
             <p class="action-word large-text scroll-indicator">SCROLL DOWN</p>
         </header>
@@ -32,49 +34,49 @@
         <section class="section-container">
             <h2 class="section-title">The Velvet Lookbook</h2>
             <div class="stack-deck-wrapper">
-                <div class="stack-card-item">
+                <div class="stack-card-item auto-parallax">
                     <img src="pic1.png" alt="Madhuri 1">
                     <p class="card-caption">Bholi Gaaye lag rahi ho, par chaos ki queen ho! 🤫</p>
                 </div>
-                <div class="stack-card-item">
+                <div class="stack-card-item auto-parallax">
                     <img src="pic2.png" alt="Madhuri 2">
                     <p class="card-caption">Saree royalty! Standard ekdum high hai boss ✨</p>
                 </div>
-                <div class="stack-card-item">
+                <div class="stack-card-item auto-parallax">
                     <img src="pic3.png" alt="Madhuri 3">
                     <p class="card-caption">Chasing the Mumbai sun, golden hour ready! ☀️</p>
                 </div>
-                <div class="stack-card-item">
+                <div class="stack-card-item auto-parallax">
                     <img src="pic4.png" alt="Madhuri 4">
                     <p class="card-caption">Ye smile dekh kar kaun bolega ki tum pranks plan karti ho? 😂</p>
                 </div>
-                <div class="stack-card-item">
+                <div class="stack-card-item auto-parallax">
                     <img src="pic5.png" alt="Madhuri 5">
                     <p class="card-caption">Shades of sapphire, pure elegant vibes! 💙</p>
                 </div>
-                <div class="stack-card-item">
+                <div class="stack-card-item auto-parallax">
                     <img src="pic6.png" alt="Madhuri 6">
                     <p class="card-caption">Classic traditional noor, bilkul flawless! ✨</p>
                 </div>
-                <div class="stack-card-item">
+                <div class="stack-card-item auto-parallax">
                     <img src="pic7.png" alt="Madhuri 7">
                     <p class="card-caption">Chikankari quirks aur wahi purani mastkhori 😉</p>
                 </div>
-                <div class="stack-card-item">
+                <div class="stack-card-item auto-parallax">
                     <img src="pic8.png" alt="Madhuri 8">
                     <p class="card-caption">Sunkissed and casual, frame ekdum perfect hai!</p>
                 </div>
-                <div class="stack-card-item">
+                <div class="stack-card-item auto-parallax">
                     <img src="pic9.png" alt="Madhuri 9">
                     <p class="card-caption">Juniper brand ka toh pata nahi, par tum khud ek brand ho! 👑</p>
                 </div>
             </div>
         </section>
 
-        <section class="section-container">
+        <section class="section-container" id="videoSectionNode">
             <h2 class="section-title">The Secret Footage</h2>
             <p class="vlog-heading-hinglish">Floor Pe Phone Chalana Mana Hai! 🤫📱</p>
-            <div class="smartphone-frame">
+            <div class="smartphone-frame video-outline-aura">
                 <video id="vlogVideo" loop playsinline controls>
                     <source src="bday-vlog.mp4" type="video/mp4">
                 </video>
@@ -83,7 +85,7 @@
 
         <section class="section-container">
             <h2 class="section-title">The Memory Lane Wish</h2>
-            <div class="scratch-canvas-container">
+            <div class="scratch-canvas-container physical-depth-box">
                 <div class="secret-birthday-message">
                     <p>Happy Birthday, Madhu! Fashion Factory ke wo din, Afreen aur Nisha ko trial room ke bahaar Area Manager ban kar darana, aur floor par chup-chup ke phone chalana... Mumbai ki wo yaadein hamesha special rahengi. Have an amazing year ahead, bholi gaaye! 🎂🥳</p>
                 </div>
@@ -99,7 +101,7 @@
     </div>
 
     <audio id="bgMusic" loop>
-        <source src="wedding-music.mp3" type="audio/mp3">
+        <source src="bday-track.mp3" type="audio/mp3">
     </audio>
 
     <script src="script.js"></script>
