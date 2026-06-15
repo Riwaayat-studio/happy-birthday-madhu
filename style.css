@@ -1,136 +1,167 @@
-/* ══ RESET & GLOBAL VARIABLES ══ */
+/* ══ RESET & DEEP CONTRAST VARIABLES ══ */
 *, *::before, *::after {
     margin: 0; padding: 0; box-sizing: border-box;
 }
 
 :root {
-    --bg-dark-pink: #16020C;
-    --bg-gradient: linear-gradient(145deg, #16020C, #280414, #38081C);
-    --rose-cream: #FFF0F5;
-    --champagne-gold: #FFD700;
-    --neon-magenta-glow: rgba(219, 112, 147, 0.55);
-    --border-aura: 3px solid #DB7093;
+    --bg-obsidian-black: #0A0108;
+    --bg-mesh-gradient: radial-gradient(circle at 50% 50%, #300519 0%, #0A0108 85%);
+    --rose-cream: #FFF2F8;
+    --liquid-gold: #FFD700;
+    --neon-magenta-glow: rgba(219, 112, 147, 0.6);
+    --border-aura-glow: 3px solid #DB7093;
 }
 
 body {
-    background: var(--bg-dark-pink);
+    background: var(--bg-obsidian-black);
     color: var(--rose-cream);
     font-family: 'Cormorant Garamond', serif;
     overflow-x: hidden;
 }
 
-/* 💥 Particle Canvas Setup */
 #blastCanvas {
     position: fixed; inset: 0; z-index: 99998; pointer-events: none; display: none;
 }
 
-/* ══ ACTION TEXTS (Bada Size, Bold, & Highly Readable) ══ */
-.action-word {
-    font-family: 'Raleway', sans-serif;
+/* ══ HIGH-END LUXURY ACTION WORDS (Clean Montserrat Override, Zero Emojis) ══ */
+.action-word.premium-action-text {
+    font-family: 'Montserrat', sans-serif;
     font-weight: 900;
-    color: var(--champagne-gold);
-    letter-spacing: 0.3em;
+    font-size: 1.15rem;
+    color: var(--liquid-gold);
+    letter-spacing: 0.35em;
     text-transform: uppercase;
     text-align: center;
-    font-size: 1.25rem;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.9);
 }
 
 .action-word.large-text {
-    font-size: 1.6rem;
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    font-size: 1.35rem;
+    text-shadow: 0 0 25px rgba(255, 215, 0, 0.55);
 }
 
-/* ══ COZY 3D GIFT VAULT BOX (Zero Wedding Traces) ══ */
+/* ══ ISOMETRIC 3D VIEWPORT & BOX MECHANICS (Ultra Depth) ══ */
 #gift-vault-screen {
     position: fixed; inset: 0; z-index: 99999;
-    background: radial-gradient(circle, #38081C 0%, #16020C 100%);
+    background: radial-gradient(circle at 50% 45%, #2B0415 0%, #070005 100%);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
 
-.box-3d-wrap { position: relative; width: 220px; height: 220px; cursor: pointer; }
+.scene-3d-viewport {
+    perspective: 1200px; padding: 2rem;
+}
+
+.box-3d-wrap {
+    position: relative; width: 220px; height: 220px; cursor: pointer;
+    transform-style: preserve-3d;
+    transform: rotateX(18deg) rotateY(-22deg);
+    animation: floatPrism 4s ease-in-out infinite alternative;
+}
+
+@keyframes floatPrism {
+    0% { transform: rotateX(18deg) rotateY(-22deg) translateY(0px); }
+    100% { transform: rotateX(22deg) rotateY(-18deg) translateY(-15px); }
+}
+
 .gift-box-body {
     position: absolute; bottom: 0; width: 100%; height: 75%;
-    background: linear-gradient(135deg, #4A0E28, #250413);
-    border: var(--border-aura); border-radius: 4px; box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+    background: linear-gradient(135deg, rgba(74, 14, 40, 0.8), rgba(37, 4, 19, 0.95));
+    backdrop-filter: blur(12px); border: var(--border-aura-glow); border-radius: 6px;
+    box-shadow: 0 35px 70px rgba(0,0,0,0.9), inset 0 1px 3px rgba(255,255,255,0.1);
 }
-.gift-box-lid {
-    position: absolute; top: 15%; width: 106%; height: 25%; left: -3%;
-    background: linear-gradient(135deg, #5C1333, #33071B);
-    border: var(--border-aura); border-radius: 3px; z-index: 2;
-    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.neon-ribbon-v { position: absolute; left: 46%; width: 10%; height: 100%; background: var(--champagne-gold); box-shadow: 0 0 15px var(--champagne-gold); }
-.neon-ribbon-h { position: absolute; top: 45%; width: 100%; height: 12%; background: var(--champagne-gold); box-shadow: 0 0 15px var(--champagne-gold); }
-.cyber-seal {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 50px; height: 50px; background: #000; border: 2px solid var(--champagne-gold);
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-family: 'Cinzel', serif; font-weight: 900; color: var(--champagne-gold); font-size: 1.5rem;
-    box-shadow: 0 0 20px var(--champagne-gold);
-}
-.box-3d-wrap.open-animation .gift-box-lid { transform: translateY(-90px) rotate(-12deg); opacity: 0; }
 
-/* ══ MAIN INTERFACE CONTENT WORKSPACE ══ */
-#main-content-vault { display: none; opacity: 0; background: var(--bg-gradient); min-height: 100vh; transition: opacity 1s ease; }
+.gift-box-lid {
+    position: absolute; top: 12%; width: 108%; height: 25%; left: -4%;
+    background: linear-gradient(135deg, #5C1333, #33071B);
+    border: var(--border-aura-glow); border-radius: 4px; z-index: 2;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s;
+}
+
+.neon-ribbon-v { position: absolute; left: 45%; width: 10%; height: 100%; background: var(--liquid-gold); box-shadow: 0 0 20px var(--liquid-gold); }
+.neon-ribbon-h { position: absolute; top: 44%; width: 100%; height: 12%; background: var(--liquid-gold); box-shadow: 0 0 20px var(--liquid-gold); }
+
+.cyber-seal {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) translateZ(10px);
+    width: 52px; height: 52px; background: #000; border: 2px solid var(--liquid-gold);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-weight: 900; color: var(--liquid-gold); font-size: 1.6rem;
+    box-shadow: 0 0 25px var(--liquid-gold);
+}
+
+.box-3d-wrap.open-animation .gift-box-lid {
+    transform: translateZ(150px) translateY(-120px) rotateX(-45deg); opacity: 0;
+}
+
+/* ══ CORE INTERFACE CONTAINER ══ */
+#main-content-vault {
+    display: none; opacity: 0; background: var(--bg-mesh-gradient); min-height: 100vh; transition: opacity 1.2s ease;
+}
+
 .hero-header-zone { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; }
 
-/* 👑 Custom Bold Typography with Depth Shadows */
+/* 👑 Clean High-End Typography with Drop Shadows (No Emojis) */
 .main-title {
-    font-family: 'Cinzel Decorative', serif; font-weight: 900; font-size: clamp(2.2rem, 6vw, 4.2rem);
-    text-align: center; line-height: 1.4; letter-spacing: 0.05em;
-    color: var(--rose-cream); text-shadow: 0 4px 15px rgba(0,0,0,0.9), 0 0 30px rgba(219,112,147,0.3);
-}
-.main-title span {
-    display: block; font-size: 1.25em; margin-top: 0.5rem; color: var(--champagne-gold);
-    text-shadow: 0 8px 25px rgba(0,0,0,0.9), 0 0 35px rgba(255,215,0,0.5);
-}
-.sub-quote {
-    font-style: italic; color: rgba(255,240,245,0.7); text-align: center; max-width: 550px; margin-top: 2rem; font-size: 1.3rem; line-height: 1.7;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    font-family: 'Cinzel Decorative', serif; font-weight: 900; font-size: clamp(2.4rem, 6vw, 4.4rem);
+    text-align: center; line-height: 1.4; letter-spacing: 0.08em; color: var(--rose-cream);
+    text-shadow: 0 4px 20px rgba(0,0,0,0.95);
 }
 
-/* ══ SCROLL OBSERVATION LOOKBOOK CARDS (Concept 4 Stack Deck) ══ */
-.section-container { padding: 6rem 1.5rem; display: flex; flex-direction: column; align-items: center; }
-.section-title {
-    font-family: 'Cinzel', serif; font-weight: 900; font-size: 2.2rem; color: var(--champagne-gold); margin-bottom: 4rem; text-transform: uppercase; letter-spacing: 0.2em;
-    text-shadow: 0 4px 8px rgba(0,0,0,0.6);
+.main-title span {
+    display: block; font-size: 1.35em; margin-top: 1rem; color: var(--liquid-gold);
+    text-shadow: 0 8px 30px rgba(0,0,0,0.95), 0 0 40px rgba(255,215,0,0.6);
+    letter-spacing: 0.1em;
 }
-.stack-deck-wrapper { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 6rem; }
+
+.sub-quote {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600;
+    color: rgba(255,242,248,0.65); text-align: center; max-width: 580px; margin-top: 2rem; font-size: 1.35rem; line-height: 1.7;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+}
+
+/* ══ DYNAMIC VIEWPORT FOCUS STACK DECK ══ */
+.section-container { padding: 7rem 1.5rem; display: flex; flex-direction: column; align-items: center; }
+.section-title {
+    font-family: 'Cinzel', serif; font-weight: 900; font-size: 2.3rem; color: var(--liquid-gold); margin-bottom: 5rem; text-transform: uppercase; letter-spacing: 0.22em;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.7);
+}
+
+.stack-deck-wrapper { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 9rem; }
 
 .stack-card-item {
-    background: rgba(255,255,255,0.02); border: 2px solid rgba(219, 112, 147, 0.2); border-radius: 8px;
-    padding: 1.2rem 1.2rem 2.5rem 1.2rem; box-shadow: 0 30px 60px rgba(0,0,0,0.7);
-    transform: scale(0.95); opacity: 0.5; filter: blur(3px);
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.6s, box-shadow 0.6s, opacity 0.6s, filter 0.6s;
+    background: rgba(255,255,255,0.01); border: 2px solid rgba(219, 112, 147, 0.15); border-radius: 8px;
+    padding: 1.3rem 1.3rem 2.8rem 1.3rem; box-shadow: 0 35px 70px rgba(0,0,0,0.8);
+    transform: scale(0.93); opacity: 0.45; filter: blur(4px);
+    transition: transform 0.7s cubic-bezier(0.2, 1, 0.3, 1), border-color 0.7s, box-shadow 0.7s, opacity 0.7s, filter 0.7s;
 }
 
-/* Auto Active Focus Styles */
 .stack-card-item.active-center {
-    transform: scale(1.05); opacity: 1; filter: blur(0px);
-    border-color: #DB7093; box-shadow: 0 30px 60px var(--neon-magenta-glow), inset 0 0 15px rgba(219,112,147,0.15);
-}
-.stack-card-item img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; margin-bottom: 1.8rem; }
-.card-caption {
-    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 700; font-size: 1.25rem; text-align: center; color: var(--rose-cream); line-height: 1.6;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    transform: scale(1.06); opacity: 1; filter: blur(0px);
+    border-color: #DB7093; box-shadow: 0 35px 65px var(--neon-magenta-glow), inset 0 0 20px rgba(219,112,147,0.1);
 }
 
-/* ══ VIDEO OUTLINE AURA MODULE ══ */
-.vlog-heading-hinglish { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.8rem; color: var(--rose-cream); margin-bottom: 2.5rem; text-align: center; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
-.smartphone-frame { width: 100%; max-width: 320px; aspect-ratio: 9/16; background: #000; border: 4px solid #333; border-radius: 28px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.8); }
-.video-outline-aura { border: var(--border-aura); box-shadow: 0 0 30px var(--neon-magenta-glow); }
+.stack-card-item img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; margin-bottom: 2rem; }
+
+.card-caption {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 700; font-size: 1.3rem; text-align: center; color: var(--rose-cream); line-height: 1.6;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+}
+
+/* ══ RESPONSIVE SMARTPHONE video SCREEN ══ */
+.vlog-heading-hinglish { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 700; font-size: 1.9rem; color: var(--rose-cream); margin-bottom: 2.5rem; text-align: center; }
+.smartphone-frame { width: min(315px, 85vw); aspect-ratio: 9/16; background: #000; border-radius: 26px; overflow: hidden; margin: 0 auto; }
+.video-outline-aura { border: var(--border-aura-glow); box-shadow: 0 0 35px var(--neon-magenta-glow); }
 .smartphone-frame video { width: 100%; height: 100%; object-fit: cover; }
 
-/* ══ HYPER REALISTIC METALLIC SCRATCH OVERLAY ══ */
+/* ══ BEVELED GLASS SCRATCH SYSTEM (Liquid Gold Patina overlay) ══ */
 .physical-depth-box {
     border: 3px solid #DB7093; border-radius: 8px;
-    box-shadow: 0 30px 70px rgba(0,0,0,0.9), inset 0 0 20px rgba(0,0,0,0.8);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.95), inset 0 1px 3px rgba(255,255,255,0.15);
 }
-.scratch-canvas-container { position: relative; width: 100%; max-width: 450px; aspect-ratio: 1.8/1; background: #220311; overflow: hidden; }
-.secret-birthday-message { position: absolute; inset: 0; padding: 1.5rem; display: flex; align-items: center; justify-content: center; text-align: center; }
-.secret-birthday-message p { font-size: 1.2rem; line-height: 1.7; color: var(--rose-cream); font-style: italic; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
+.scratch-canvas-container { position: relative; width: 100%; max-width: 450px; aspect-ratio: 1.8/1; background: #1B020E; overflow: hidden; }
+.secret-birthday-message { position: absolute; inset: 0; padding: 1.8rem; display: flex; align-items: center; justify-content: center; text-align: center; }
+.secret-birthday-message p { font-size: 1.25rem; line-height: 1.7; color: var(--rose-cream); font-style: italic; text-shadow: 0 2px 5px rgba(0,0,0,0.8); }
 #scratchCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer; z-index: 3; }
 
-footer { text-align: center; padding: 4rem 1rem; border-top: 1px solid rgba(255,255,255,0.05); font-family: 'Raleway', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; opacity: 0.4; }
-    
+footer { text-align: center; padding: 5rem 1rem; border-top: 1px solid rgba(255,255,255,0.04); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 0.25em; opacity: 0.35; }
