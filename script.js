@@ -1,4 +1,4 @@
-// 🎁 1. GIFT BOX VAULT TRIGGER & INITIAL BLAST
+// 🎁 1. 3D GIFT UNWRAP & CHROMATIC BLAST CONSOLE
 function unwrapGiftBox() {
     const boxWrap = document.querySelector('.box-3d-wrap');
     if (boxWrap.classList.contains('open-animation')) return;
@@ -6,7 +6,6 @@ function unwrapGiftBox() {
     boxWrap.classList.add('open-animation');
 
     setTimeout(() => {
-        // Hiding unwrap matrix gate screen
         document.getElementById('gift-vault-screen').style.display = 'none';
         const mainWorkspace = document.getElementById('main-content-vault');
         mainWorkspace.style.display = 'block';
@@ -14,23 +13,21 @@ function unwrapGiftBox() {
         setTimeout(() => {
             mainWorkspace.style.opacity = '1';
             initScratchModule();
-            // Fire Paper Sprinkle Blast Eruption
+            // Fire Metallic Patina Burst Animation
             triggerBirthdayBlast();
         }, 50);
 
-        // Core background score track play trigger
         const music = document.getElementById('bgMusic');
         if (music) {
-            music.volume = 0.7; // Global background balance scale
-            music.play().catch(e => console.log("Audio waiting engine handshake."));
+            music.volume = 0.65;
+            music.play().catch(e => console.log("Audio asset stream secured."));
         }
         
-        // Attaching active viewport auto parallax system trackers
         initScrollSurveillance();
-    }, 1000);
+    }, 1200);
 }
 
-// 💥 2. AUTOMATIC LUXURY PAPER SPRINKLE BLAST (CONFETTI ENGINE)
+// 💥 2. AUTOMATIC PARTY FOIL STRIP BURST ENGINE (CONFETTI ENGINE)
 function triggerBirthdayBlast() {
     const canvas = document.getElementById('blastCanvas');
     const ctx = canvas.getContext('2d');
@@ -39,19 +36,19 @@ function triggerBirthdayBlast() {
     canvas.height = window.innerHeight;
 
     let particles = [];
-    const colors = ['#DB7093', '#FFD700', '#FF69B4', '#FFF0F5', '#8B008B'];
+    const colors = ['#DB7093', '#FFD700', '#FF1493', '#FFF0F5', '#4A0E28'];
 
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 160; i++) {
         particles.push({
             x: Math.random() * canvas.width,
-            y: canvas.height + 20, 
-            sizeWidth: Math.random() * 8 + 4,
-            sizeHeight: Math.random() * 12 + 6,
-            speedX: Math.random() * 10 - 5,
-            speedY: -(Math.random() * 15 + 10),
-            gravity: 0.35,
+            y: canvas.height + 25, 
+            sizeWidth: Math.random() * 7 + 4,
+            sizeHeight: Math.random() * 14 + 6,
+            speedX: Math.random() * 12 - 6,
+            speedY: -(Math.random() * 16 + 11),
+            gravity: 0.38,
             rotation: Math.random() * 360,
-            rotationSpeed: Math.random() * 10 - 5,
+            rotationSpeed: Math.random() * 12 - 6,
             color: colors[Math.floor(Math.random() * colors.length)]
         });
     }
@@ -62,7 +59,7 @@ function triggerBirthdayBlast() {
 
         particles.forEach(p => {
             p.speedY += p.gravity; p.x += p.speedX; p.y += p.speedY; p.rotation += p.rotationSpeed;
-            if (p.y <= canvas.height + 20) activeParticles = true;
+            if (p.y <= canvas.height + 25) activeParticles = true;
 
             ctx.save();
             ctx.translate(p.x, p.y);
@@ -81,13 +78,12 @@ function triggerBirthdayBlast() {
     animateBlast();
 }
 
-// 📸 3. INTERSECTION SURVEILLANCE AUTO FOCUS ENGINE (No click needed)
+// 📸 3. INTERSECTION SURVEILLANCE AUTO FOCUS ENGINE
 function initScrollSurveillance() {
     const cards = document.querySelectorAll('.auto-parallax');
     
     const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            // Highlights cards automatically when passing through mid screen center focus
             if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
                 entry.target.classList.add('active-center');
             } else {
@@ -97,16 +93,14 @@ function initScrollSurveillance() {
     }, {
         root: null,
         threshold: [0.1, 0.6, 0.9],
-        rootMargin: "-20% 0px -20% 0px"
+        rootMargin: "-25% 0px -25% 0px"
     });
 
     cards.forEach(card => scrollObserver.observe(card));
-    
-    // Attaching real time crossfade loops
     window.addEventListener('scroll', crossfadeAudioSurveillance);
 }
 
-// 🎵 4. AUDIO DUCK MANAGEMENT PIPELINE
+// 🎵 4. VIDEO CROSSFADE DUCK SYSTEM
 function crossfadeAudioSurveillance() {
     const videoSection = document.getElementById('videoSectionNode');
     const bdayVideo = document.getElementById('vlogVideo');
@@ -117,24 +111,21 @@ function crossfadeAudioSurveillance() {
     const bounds = videoSection.getBoundingClientRect();
     const viewportHeight = window.innerHeight;
 
-    // Checks if secret floor footage occupies the critical viewing area
     if (bounds.top < viewportHeight * 0.6 && bounds.bottom > viewportHeight * 0.4) {
         if (bdayVideo.paused) {
-            bdayVideo.play().catch(e => console.log("Video track pipeline idle."));
-            // Automatically duck tracking music audio profile down smoothly
-            bgMusic.volume = 0.15;
+            bdayVideo.play().catch(e => console.log("Video pipe wait."));
+            bgMusic.volume = 0.12; // Lower music score volume sharply
             bdayVideo.volume = 0.95;
         }
     } else {
         if (!bdayVideo.paused) {
             bdayVideo.pause();
-            // Restore native background scale metrics
-            bgMusic.volume = 0.7;
+            bgMusic.volume = 0.65; // Restore normal background scale
         }
     }
 }
 
-// 🧮 5. HIGH END METALLIC SCRATCH CARD CANVAS
+// 🧮 5. BRUSHED LIQUID GOLD METALLIC CANVAS ENGINE
 function initScratchModule() {
     const canvas = document.getElementById('scratchCanvas');
     if (!canvas) return;
@@ -143,23 +134,31 @@ function initScratchModule() {
     const box = canvas.getBoundingClientRect();
     canvas.width = box.width; canvas.height = box.height;
 
-    // Solid dark pink coat layout overlay masking
-    ctx.fillStyle = '#300516';
+    // Base background layer gradient for gold texture depth loop
+    let goldGrad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    goldGrad.addColorStop(0, '#B8860B');  // Dark Goldenrod
+    goldGrad.addColorStop(0.3, '#FFD700'); // Shiny Gold
+    goldGrad.addColorStop(0.5, '#FFF8DC'); // Cornsilk Highlight Reflection
+    goldGrad.addColorStop(0.7, '#DAA520'); // Goldenrod
+    goldGrad.addColorStop(1, '#9B7100');  // Deep Metallic Shadow
+
+    ctx.fillStyle = goldGrad;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    // Adding noise grit sand dust points over top coat for textured leather mask look
-    for (let i = 0; i < 800; i++) {
-        let x = Math.random() * canvas.width; let y = Math.random() * canvas.height;
-        ctx.fillStyle = 'rgba(219, 112, 147, 0.08)';
-        ctx.fillRect(x, y, 2, 2);
+    // Injecting dynamic metallic fine dust grains to add brushed reflection noise
+    for (let i = 0; i < 950; i++) {
+        let x = Math.random() * canvas.width;
+        let y = Math.random() * canvas.height;
+        ctx.fillStyle = Math.random() > 0.5 ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.12)';
+        ctx.fillRect(x, y, 1.5, 1.5);
     }
 
-    ctx.font = 'bold 13px Raleway, sans-serif';
-    ctx.fillStyle = '#FFD700';
-    ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 4;
+    // Clean Premium Font Action Overlay
+    ctx.font = '900 11px Montserrat, sans-serif';
+    ctx.fillStyle = '#0A0108'; // Dark charcoal high-contrast ink
+    ctx.letterSpacing = '3px';
     ctx.textAlign = 'center';
-    ctx.fillText('⚡ SCRATCH WITH POINTER HERE ⚡', canvas.width / 2, canvas.height / 2 + 4);
-    ctx.shadowBlur = 0; // tracking reset
+    ctx.fillText('SCRATCH WITH POINTER HERE', canvas.width / 2, canvas.height / 2 + 4);
 
     let isDrawing = false;
 
@@ -174,7 +173,7 @@ function initScratchModule() {
 
         ctx.globalCompositeOperation = 'destination-out';
         ctx.beginPath();
-        ctx.arc(x, y, 28, 0, Math.PI * 2);
+        ctx.arc(x, y, 26, 0, Math.PI * 2);
         ctx.fill();
     }
 
@@ -186,3 +185,4 @@ function initScratchModule() {
     canvas.addEventListener('touchend', () => isDrawing = false);
     canvas.addEventListener('touchmove', scratchAction);
             }
+
