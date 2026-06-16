@@ -1,4 +1,4 @@
-// ════════ GLOBALS & THREE.JS REAL 3D ENGINE INITIALIZATION ════════
+// ═══ GLOBALS & THREE.JS ENGINE CORE INITIALIZATION ═══
 let scene, camera, renderer, giftBoxGroup, boxLidMesh;
 let isUnwrappingActive = false;
 
@@ -10,14 +10,13 @@ function initReal3DModelEngine() {
     camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
     camera.position.z = 6;
 
-    // Fixed WebGL configurations to enforce alpha transparency loops (Removes grey box)
     renderer = new THREE.WebGLRenderer({ canvas: canvas3D, antialias: true, alpha: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(canvas3D.clientWidth, canvas3D.clientHeight);
-    renderer.setClearColor(0x000000, 0); // Sets transparency layer channel directly
+    renderer.setClearColor(0x000000, 0); 
 
-    // Light Shadow Setup (Forcing permanent illumination parameters)
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8); // Higher intensity baseline
+    // Light Shadows Environment Setup
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.85); 
     scene.add(ambientLight);
 
     const pointLight = new THREE.PointLight(0xffd700, 1.5, 50); 
@@ -30,9 +29,9 @@ function initReal3DModelEngine() {
 
     giftBoxGroup = new THREE.Group();
 
-    // Fixed Materials to standard MeshLambert to handle continuous light reflections smoothly
-    const velvetMaterial = new THREE.MeshLambertMaterial({ color: 0x4a0e28 }); // Solid Velvet Magenta
-    const ribbonMaterial = new THREE.MeshLambertMaterial({ color: 0xffd700 });  // Solid Gold Ribbon
+    // Solid Materials handling light pipeline flawlessly
+    const velvetMaterial = new THREE.MeshLambertMaterial({ color: 0x4a0e28 }); 
+    const ribbonMaterial = new THREE.MeshLambertMaterial({ color: 0xffd700 });  
 
     // Build Box Base Body Mesh (3D Cube Object)
     const bodyGeom = new THREE.BoxGeometry(2, 1.5, 2);
@@ -71,16 +70,27 @@ function initReal3DModelEngine() {
             giftBoxGroup.rotation.x = Math.sin(floatClock) * 0.1; 
             giftBoxGroup.position.y = Math.sin(floatClock * 1.5) * 0.12; 
         } else {
-            // Mechanical 3D Fly-apart Release
-            if (boxLidMesh.position.y < 4) {
-                boxLidMesh.position.y += 0.09; 
-                boxLidMesh.rotation.x += 0.06;  
-                giftBoxGroup.scale.multiplyScalar(0.98); // Shrink away base
+            // Mechanical 3D Fly-apart Lid Release (Fixed the scale calculation crash)
+            if (boxLidMesh.position.y < 5) {
+                boxLidMesh.position.y += 0.12; 
+                boxLidMesh.rotation.x += 0.07;  
+                if(giftBoxGroup.scale.x > 0.05) {
+                    giftBoxGroup.scale.x -= 0.04;
+                    giftBoxGroup.scale.y -= 0.04;
+                    giftBoxGroup.scale.z -= 0.04;
+                }
             }
         }
         renderer.render(scene, camera);
     }
     render3DFrameLoop();
+
+    // Touch/Click Listener Attached directly to the gateway viewport wrapper
+    document.getElementById('gift-vault-screen').addEventListener('click', unwrapGiftBox);
+    document.getElementById('gift-vault-screen').addEventListener('touchstart', function(e) {
+        unwrapGiftBox();
+        e.preventDefault();
+    }, { passive: false });
 
     window.addEventListener('resize', () => {
         if (!renderer) return;
@@ -103,13 +113,13 @@ function unwrapGiftBox() {
         setTimeout(() => {
             mainWorkspace.style.opacity = '1';
             initScratchModule();
-            triggerBirthdayBlast(); // Launch FOIL Particle Eruption
+            triggerBirthdayBlast(); 
         }, 50);
 
         const music = document.getElementById('bgMusic');
-        if (music) { music.volume = 0.65; music.play().catch(e => console.log("Audio handshaked.")); }
+        if (music) { music.volume = 0.65; music.play().catch(e => console.log("Audio pipeline connected.")); }
         initScrollSurveillance();
-    }, 1100);
+    }, 900);
 }
 
 // 💥 3. AUTOMATIC CHROMATIC METALLIC BURST ENGINE (CONFETTI ENGINE)
@@ -225,7 +235,6 @@ function initScratchModule() {
         ctx.fillRect(x, y, 1.5, 1.5);
     }
 
-    // Explicit Cinzel Font Tracking configuration (Zero Emojis)
     ctx.font = '900 12px Cinzel, serif';
     ctx.fillStyle = '#0A0108'; 
     ctx.letterSpacing = '4px';
@@ -253,4 +262,5 @@ function initScratchModule() {
     canvas.addEventListener('touchstart', () => isDrawing = true);
     canvas.addEventListener('touchend', () => isDrawing = false);
     canvas.addEventListener('touchmove', scratchAction);
-}
+            }
+                                                            
