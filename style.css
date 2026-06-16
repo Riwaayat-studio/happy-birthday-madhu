@@ -1,6 +1,10 @@
 /* ══ RESET & GLOBAL MESH CORE ══ */
 *, *::before, *::after {
     margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent !important; /* Fixed the Blue Selection Box Glitch */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 :root {
@@ -41,7 +45,7 @@ body {
     text-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
 }
 
-/* ══ THREE.JS REAL 3D ENGINE VIEWPORT CONTAINER (Square Box Background Fixed) ══ */
+/* ══ THREE.JS REAL 3D ENGINE VIEWPORT CONTAINER ══ */
 #gift-vault-screen {
     position: fixed; inset: 0; z-index: 99999;
     background: radial-gradient(circle at 50% 45%, #2B0415 0%, #070005 100%);
@@ -50,12 +54,16 @@ body {
 
 .canvas-3d-container {
     width: 100%; max-width: 380px; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center;
-    background: transparent !important; /* Fixed the grey/blue block glitch */
+    background: transparent !important;
+    outline: none !important;
+    border: none !important;
 }
 
 #three-gift-canvas {
     width: 100% !important; height: 100% !important; cursor: pointer;
-    background: transparent !important; /* Fixed background transparency node */
+    background: transparent !important;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 /* ══ MAIN INTERFACE CONTENT WORKSPACE ══ */
@@ -129,4 +137,4 @@ body {
 #scratchCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer; z-index: 3; }
 
 footer { text-align: center; padding: 5rem 1rem; border-top: 1px solid rgba(255,255,255,0.04); font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.25em; opacity: 0.35; }
-                            
+                        
