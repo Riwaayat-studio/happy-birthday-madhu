@@ -10,27 +10,29 @@ function initReal3DModelEngine() {
     camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
     camera.position.z = 6;
 
+    // Fixed WebGL configurations to enforce alpha transparency loops (Removes grey box)
     renderer = new THREE.WebGLRenderer({ canvas: canvas3D, antialias: true, alpha: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(canvas3D.clientWidth, canvas3D.clientHeight);
+    renderer.setClearColor(0x000000, 0); // Sets transparency layer channel directly
 
-    // Light Shadows Environment
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+    // Light Shadow Setup (Forcing permanent illumination parameters)
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8); // Higher intensity baseline
     scene.add(ambientLight);
 
-    const pointLight = new THREE.PointLight(0xffd700, 1.2, 50); // Gold Shine Node
+    const pointLight = new THREE.PointLight(0xffd700, 1.5, 50); 
     pointLight.position.set(5, 5, 5);
     scene.add(pointLight);
 
-    const pinkLight = new THREE.PointLight(0xdb7093, 1.5, 30); // Deep Pink Light Leak Node
+    const pinkLight = new THREE.PointLight(0xdb7093, 1.5, 30); 
     pinkLight.position.set(-5, -3, 3);
     scene.add(pinkLight);
 
     giftBoxGroup = new THREE.Group();
 
-    // Materials Config
-    const velvetMaterial = new THREE.MeshStandardMaterial({ color: 0x4a0e28, roughness: 0.3, metalness: 0.1 });
-    const ribbonMaterial = new THREE.MeshStandardMaterial({ color: 0xffd700, roughness: 0.1, metalness: 0.8 });
+    // Fixed Materials to standard MeshLambert to handle continuous light reflections smoothly
+    const velvetMaterial = new THREE.MeshLambertMaterial({ color: 0x4a0e28 }); // Solid Velvet Magenta
+    const ribbonMaterial = new THREE.MeshLambertMaterial({ color: 0xffd700 });  // Solid Gold Ribbon
 
     // Build Box Base Body Mesh (3D Cube Object)
     const bodyGeom = new THREE.BoxGeometry(2, 1.5, 2);
@@ -40,7 +42,7 @@ function initReal3DModelEngine() {
 
     // Build Box Lid Mesh (3D Cap)
     const lidGeom = new THREE.BoxGeometry(2.1, 0.4, 2.1);
-    boxLidMesh = new THREE.Mesh(lidGeom, new THREE.MeshStandardMaterial({ color: 0x5c1333, roughness: 0.3 }));
+    boxLidMesh = new THREE.Mesh(lidGeom, new THREE.MeshLambertMaterial({ color: 0x5c1333 }));
     boxLidMesh.position.y = 0.55;
     giftBoxGroup.add(boxLidMesh);
 
